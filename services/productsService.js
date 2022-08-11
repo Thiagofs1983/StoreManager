@@ -10,6 +10,7 @@ const findProductById = async (id) => {
   if (product.length === 0) {
     const err = new Error('Product not found');
     err.status = 404;
+    throw err;
   }
   return product;
 };

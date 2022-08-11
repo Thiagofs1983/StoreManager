@@ -10,10 +10,11 @@ app.get('/', (_request, response) => {
 });
 
 app.get('/products', productsController.getAll);
+app.get('/products/:id', productsController.findProductById);
 
 app.use((err, req, res, _next) => {
   const { message, status } = err;
-  res.status(status).json(message);
+  res.status(status).json({ message });
 });
 
 // não remova essa exportação, é para o avaliador funcionar
