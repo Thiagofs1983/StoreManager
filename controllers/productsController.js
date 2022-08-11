@@ -13,6 +13,7 @@ const findProductById = async (req, res) => {
 
 const create = async (req, res) => {
   const { name } = req.body;
+  productsService.validateProduct(req.body);
   const id = await productsService.create(name);
   const newProduct = { id, name };
   res.status(201).json(newProduct);
