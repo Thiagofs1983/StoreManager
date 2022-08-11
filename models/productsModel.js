@@ -13,8 +13,8 @@ const findProductById = async (id) => {
 };
 
 const create = async (name) => {
-  const sql = 'INSERT INTO StoreManager.products (name) VALUES (?)';
-  const [insertId] = await connection.execute(sql, [name]);
+  const sql = 'INSERT INTO StoreManager.products (name) VALUES (?);';
+  const [{ insertId }] = await connection.execute(sql, [name]);
   return insertId;
 };
 
