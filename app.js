@@ -1,5 +1,6 @@
 const express = require('express');
 require('express-async-errors');
+const productsController = require('./controllers/productsController');
 
 const app = express();
 
@@ -8,7 +9,7 @@ app.get('/', (_request, response) => {
   response.send();
 });
 
-app.get('/products', products.controler);
+app.get('/products', productsController.getAll);
 
 app.use((err, req, res, _next) => {
   const { message, status } = err;
