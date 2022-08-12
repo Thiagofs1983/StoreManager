@@ -6,6 +6,15 @@ const addSale = async () => {
   return insertId;
 };
 
+const getAll = async () => {
+  const sql = `SELECT SP.*, S.date FROM StoreManager.sales_products AS SP
+  INNER JOIN StoreManager.sales AS S ON S.id = SP.sale_id
+  ORDER BY SP.sale_id, SP.product_id;`;
+  const [result] = await connection.execute(sql);
+  return result;
+};
+
 module.exports = {
   addSale,
+  getAll,
 };

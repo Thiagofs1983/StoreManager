@@ -5,10 +5,10 @@
     "containerId": "",
     "name": "getstoremanager",
     "url": "http://localhost:3000/sales",
-    "method": "POST",
+    "method": "GET",
     "sortNum": 10000,
     "created": "2022-08-11T19:29:16.117Z",
-    "modified": "2022-08-12T15:28:56.604Z",
+    "modified": "2022-08-12T17:53:33.669Z",
     "headers": [],
     "params": [],
     "body": {
