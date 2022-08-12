@@ -4,16 +4,35 @@
     "colId": "d699530a-43d5-4ab7-9ebd-9afd87caa315",
     "containerId": "",
     "name": "getstoremanager",
-    "url": "http://localhost:3000/products/1",
+    "url": "http://localhost:3000/sales",
     "method": "PUT",
     "sortNum": 10000,
     "created": "2022-08-11T19:29:16.117Z",
-    "modified": "2022-08-12T19:36:16.305Z",
+    "modified": "2022-08-12T20:02:29.016Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "5c7de8fc-1522-4360-a81d-c75c35315041",
+    "colId": "d699530a-43d5-4ab7-9ebd-9afd87caa315",
+    "containerId": "",
+    "name": "req6 storemanager ",
+    "url": "http://localhost:3000/sales",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-08-12T20:01:26.308Z",
+    "modified": "2022-08-12T20:01:26.308Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n    {\n      \"productId\": 1,\n      \"quantity\":1\n    },\n    {\n      \"productId\": 2,\n      \"quantity\":5\n    }\n  ]",
       "form": []
     },
     "tests": []

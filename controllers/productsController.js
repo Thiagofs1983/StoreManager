@@ -23,6 +23,7 @@ const create = async (req, res) => {
 const updatePruductById = async (req, res) => {
   const { name } = req.body;
   const { id } = req.params;
+  validate.validateProduct(req.body);
   await productsService.updatePruductById(name, id);
   res.status(200).json({ id, name });
 };

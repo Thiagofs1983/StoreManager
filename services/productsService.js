@@ -22,6 +22,11 @@ const create = async (name) => {
 
 const updatePruductById = async (name, id) => {
   const product = await productsModel.updatePruductById(name, id);
+  if (product.affectedRows === 0) {
+    const err = new Error('Product not found');
+    err.status = 404;
+    throw err;
+  }
   return product;
 };
 
