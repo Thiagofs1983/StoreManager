@@ -1,23 +1,4 @@
-const Joi = require('joi');
 const productsModel = require('../models/productsModel');
-
-const validateProduct = (product) => {
-  const schema = Joi.object({
-    name: Joi.string().min(5).required(),
-  });
-  const { error, value } = schema.validate(product);
-  if (error) {
-    const err = error;
-    if (err.message.includes('required')) {
-      err.status = 400;
-    }
-    if (err.message.includes('length')) {
-      err.status = 422;
-    }
-    throw err;
-  }
-  return value;
-};
 
 const getAll = async () => {
   const products = await productsModel.getAll();
@@ -43,5 +24,4 @@ module.exports = {
   getAll,
   findProductById,
   create,
-  validateProduct,
 };

@@ -4,16 +4,16 @@
     "colId": "d699530a-43d5-4ab7-9ebd-9afd87caa315",
     "containerId": "",
     "name": "getstoremanager",
-    "url": "http://localhost:3000/products",
+    "url": "http://localhost:3000/sales",
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-08-11T19:29:16.117Z",
-    "modified": "2022-08-11T21:57:26.214Z",
+    "modified": "2022-08-12T15:28:56.604Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \n}",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 2\n  },\n  {\n    \"productId\": 2,\n    \"quantity\":5\n  }\n]",
       "form": []
     },
     "tests": []
