@@ -20,8 +20,16 @@ const create = async (req, res) => {
   res.status(201).json(newProduct);
 };
 
+const updatePruductById = async (req, res) => {
+  const { name } = req.body;
+  const { id } = req.params;
+  await productsService.updatePruductById(name, id);
+  res.status(200).json({ id, name });
+};
+
 module.exports = {
   getAll,
   findProductById,
   create,
+  updatePruductById,
 };
