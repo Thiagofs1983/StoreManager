@@ -18,6 +18,11 @@ const getAll = async () => {
 
 const getSaleById = async (id) => {
   const result = await salesModel.getSaleById(id);
+  if (result.length === 0) {
+    const err = new Error('Sale not found');
+    err.status = 404;
+    throw err;
+  }
   const sales = result.map((sale) => ({
     productId: sale.product_id,
     quantity: sale.quantity,
