@@ -4,11 +4,11 @@
     "colId": "d699530a-43d5-4ab7-9ebd-9afd87caa315",
     "containerId": "",
     "name": "getstoremanager",
-    "url": "http://localhost:3000/sales",
+    "url": "http://localhost:3000/sales/3",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-08-11T19:29:16.117Z",
-    "modified": "2022-08-12T17:53:33.669Z",
+    "modified": "2022-08-12T18:43:42.736Z",
     "headers": [],
     "params": [],
     "body": {

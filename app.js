@@ -20,6 +20,7 @@ app.post('/products', productsController.create);
 app.post('/sales', salesProductsController.addSale);
 
 app.get('/sales', salesController.getAll);
+app.get('/sales/:id', salesController.getSaleById);
 
 app.use((err, req, res, _next) => {
   const { message, status } = err;
