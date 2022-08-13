@@ -36,5 +36,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "cb98ffd2-e669-484d-a123-56e5eb2c0c85",
+    "colId": "d699530a-43d5-4ab7-9ebd-9afd87caa315",
+    "containerId": "",
+    "name": "deletestoremanager",
+    "url": "http://localhost:3000/products/1",
+    "method": "DELETE",
+    "sortNum": 15000,
+    "created": "2022-08-13T02:17:32.347Z",
+    "modified": "2022-08-13T02:21:17.941Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
