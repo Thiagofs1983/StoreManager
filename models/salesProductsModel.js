@@ -7,9 +7,8 @@ const addSaleProduct = async (sale) => {
   const sqlSale = 'INSERT INTO StoreManager.sales (date) VALUES (NOW());';
   const [{ insertId }] = await connection.execute(sqlSale);
 
-  const result = await Promise.all(sale.map((prod) => connection
+  await Promise.all(sale.map((prod) => connection
     .execute(sql, [insertId, prod.productId, prod.quantity])));
-  console.log(result);
   return insertId;
 };
 
