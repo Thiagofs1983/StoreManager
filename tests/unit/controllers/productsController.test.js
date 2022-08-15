@@ -35,9 +35,9 @@ describe('Listar os produtos na camada controller', () => {
 });
 
 describe('busca pelo produto com o id correspondente na camada de controller', () => {
+  const req = {};
+  const res = {};
   describe('caso a busca não seja bem sucedida', () => {
-    const req = {};
-    const res = {};
     before(async () => {
       req.params = {id: 150};
       res.status = sinon.stub().returns(res);
@@ -48,11 +48,26 @@ describe('busca pelo produto com o id correspondente na camada de controller', (
       productsService.findProductById.restore();
     })
     it('é retornado um erro com o status 404', async () => {
-      //await productsController.findProductById(req, res);
       await expect(productsController.findProductById(req, res)).to.be.rejectedWith(Error);
     });
   });
   describe('caso a busca seja bem sucedida', () => {
-
+    before(async () => {
+      req.params = { id: 1 };
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productsService, 'findProductById').resolves([{ id: 1, name: 'prod 1' }]);
+    });
+    after(async () => {
+      productsService.findProductById.restore();
+    });
+    it('é chamado com o status 200', async () => {
+      await productsController.findProductById(req, res);
+      expect(res.status.calledWith(200)).to.be.equal(true);
+    });
+    it('é retornado um json com o produto do id chamado', async () => {
+      await productsController.findProductById(req, res);
+      expect(res.json.calledWith({ id: 1, name: 'prod 1' })).to.be.equal(true);
+    });
   });
 });
