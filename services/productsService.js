@@ -19,7 +19,6 @@ const findProductById = async (id) => {
 const create = async (name) => {
   const validateProduct = validate.validateProduct({ name });
   const id = await productsModel.create(validateProduct);
-  console.log(id);
   return id;
 };
 
