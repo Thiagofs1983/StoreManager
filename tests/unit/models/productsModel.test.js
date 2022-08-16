@@ -102,3 +102,29 @@ describe('Cadastrar um novo produto', () => {
     })
   });
 });
+
+describe('Atualizar um produto existente', () => {
+  describe('Caso não consiga identificar o produto', () => {
+    before(async () => {
+      sinon.stub(connection, 'execute').resolves([{ affectedRows: 0 }])
+    })
+    after(async () => {
+      connection.execute.restore();
+    });
+    it('Retorna um objeto', async () => {
+      const result = await productsModel.updatePruductById(159);
+      expect(result).to.be.a('object');
+    });
+    it('O objeto deve ter uma chave "affectedRows"', async () => {
+      const result = await productsModel.updatePruductById(159);
+      expect(result).to.be.a.property('affectedRows');
+    });
+    it('A chave "affectedRows" deve ter o valor 0', async () => {
+      const { affectedRows } = await productsModel.updatePruductById(159);
+      expect(affectedRows).to.be.equal(0);
+    });
+  });
+  describe('Caso consiga realizar a atualização com sucesso', () => {
+
+  })
+});

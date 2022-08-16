@@ -23,6 +23,7 @@ const updatePruductById = async (name, id) => {
   SET name = ?
   WHERE id = ?`;
   const [result] = await connection.execute(sql, [name, id]);
+  console.log(result);
   return result;
 };
 
