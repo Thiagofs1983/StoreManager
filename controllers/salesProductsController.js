@@ -1,9 +1,7 @@
 const salesProductsService = require('../services/salesProductsService');
-const validate = require('../middlewares/validate');
 
 const addSale = async (req, res) => {
   const arrSale = req.body;
-  await validate.validateProductSale(arrSale);
   const sale = await salesProductsService.addSaleProduct(arrSale);
   const newSale = {
     id: sale,
@@ -12,6 +10,14 @@ const addSale = async (req, res) => {
   res.status(201).json(newSale);
 };
 
+const updateSaleById = async (req, res) => {
+  const updateSale = req.body;
+  const { id } = req.params;
+  const result = await salesProductsService.updateSaleById(id, updateSale);
+  res.status(200).json(result);
+};
+
 module.exports = {
   addSale,
+  updateSaleById,
 };

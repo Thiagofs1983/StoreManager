@@ -12,6 +12,17 @@ const addSaleProduct = async (sale) => {
   return insertId;
 };
 
+const updateSaleById = async (id, sale) => {
+  const sql = `
+  UPDATE StoreManager.sales_products
+  SET quantity = ?
+  WHERE sale_id = ? AND product_id = ?`;
+  await Promise.all(sale.map(({ productId, quantity }) => connection
+  .execute(sql, [quantity, id, productId])));
+  return { saleId: id, itemsUpdated: sale };
+};
+
 module.exports = {
   addSaleProduct,
+  updateSaleById,
 };

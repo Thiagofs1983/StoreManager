@@ -42,16 +42,16 @@
     "colId": "d699530a-43d5-4ab7-9ebd-9afd87caa315",
     "containerId": "",
     "name": "deletestoremanager",
-    "url": "http://localhost:3000/products/1",
-    "method": "DELETE",
+    "url": "http://localhost:3000/sales/1",
+    "method": "PUT",
     "sortNum": 15000,
     "created": "2022-08-13T02:17:32.347Z",
-    "modified": "2022-08-13T02:21:17.941Z",
+    "modified": "2022-08-16T18:22:12.341Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "raw": "  [\n    {\n      \"productId\": 1,\n      \"quantity\":10\n    },\n    {\n      \"productId\": 2,\n      \"quantity\":50\n    }\n  ]",
       "form": []
     },
     "tests": []
@@ -66,6 +66,25 @@
     "sortNum": 17500,
     "created": "2022-08-16T14:25:47.832Z",
     "modified": "2022-08-16T15:18:11.541Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"Martelo do Batman\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "abb5b160-7fc1-452f-838a-fe2cb744f4df",
+    "colId": "d699530a-43d5-4ab7-9ebd-9afd87caa315",
+    "containerId": "",
+    "name": "updatestoremanager",
+    "url": "http://localhost:3000/products/1",
+    "method": "DELETE",
+    "sortNum": 16250,
+    "created": "2022-08-16T17:55:50.119Z",
+    "modified": "2022-08-16T17:55:50.119Z",
     "headers": [],
     "params": [],
     "body": {

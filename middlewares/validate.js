@@ -35,6 +35,7 @@ const validateProductSale = (sale) => {
     }
     throw err;
   }
+  // console.log(value);
   return value;
 });
 };

@@ -28,6 +28,8 @@ app.get('/sales', salesController.getAll);
 
 app.get('/sales/:id', salesController.getSaleById);
 
+app.put('/sales/:id', salesProductsController.updateSaleById);
+
 app.delete('/sales/:id', salesController.removeSaleById);
 
 app.use((err, req, res, _next) => {
