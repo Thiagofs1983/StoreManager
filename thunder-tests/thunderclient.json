@@ -86,11 +86,11 @@
     "colId": "d699530a-43d5-4ab7-9ebd-9afd87caa315",
     "containerId": "",
     "name": "updatestoremanager",
-    "url": "http://localhost:3000/products/143",
+    "url": "http://localhost:3000/products/1",
     "method": "PUT",
     "sortNum": 16250,
     "created": "2022-08-16T17:55:50.119Z",
-    "modified": "2022-08-16T19:31:54.987Z",
+    "modified": "2022-08-16T22:14:22.952Z",
     "headers": [],
     "params": [],
     "body": {

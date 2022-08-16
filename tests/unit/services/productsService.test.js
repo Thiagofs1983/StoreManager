@@ -96,4 +96,39 @@ describe('Cadastro de um novo produto no BD na camada service', () => {
       expect(result).to.be.equal(1);
     });
   });
-})
+});
+
+describe('Atualiza um produto existente', () => {
+  describe('Caso a atualização não tenha sucesso', () => {
+    before(async () => {
+      sinon.stub(productsModel, 'updatePruductById').resolves({ affectedRows: 0 });
+    });
+    after(async () => {
+      productsModel.updatePruductById.restore();
+    });
+    it('Deve retornar uma mensagem com o erro ocorrido', async () => {
+      await expect(productsService.updatePruductById('Cadeira', 150)).to.be.rejectedWith('Product not found');
+    });
+  });
+  describe('Caso seja atualizado com sucesso', () => {
+    const name = 'Raio do Thor'
+    before(async () => {
+      sinon.stub(productsModel, 'updatePruductById').resolves({ affectedRows: 1 });
+    });
+    after(async () => {
+      productsModel.updatePruductById.restore();
+    });
+    it('Retorna um objeto', async () => {
+      const response = await productsModel.updatePruductById(name, 1);
+      expect(response).to.be.a('object');
+    });
+    it('O objeto deve ter a chave "affectedRows"', async () => {
+      const response = await productsModel.updatePruductById(name, 1);
+      expect(response).to.be.a.property('affectedRows');
+    });
+    it('A chave "affectedRows" deve ter o valor 1', async () => {
+      const { affectedRows } = await productsModel.updatePruductById(name, 1);
+      expect(affectedRows).to.be.equal(1);
+    });
+  });
+});
