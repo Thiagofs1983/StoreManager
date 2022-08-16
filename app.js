@@ -28,6 +28,8 @@ app.get('/sales', salesController.getAll);
 
 app.get('/sales/:id', salesController.getSaleById);
 
+app.delete('/sales/:id', salesController.removeSaleById);
+
 app.use((err, req, res, _next) => {
   const { message, status } = err;
   res.status(status).json({ message });

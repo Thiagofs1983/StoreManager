@@ -31,7 +31,7 @@ const getSaleById = async (id) => {
   return sales;
 };
 
-const removeProductById = async (id) => {
+const removeSaleById = async (id) => {
   const result = await salesModel.removeSaleById(id);
   if (result.affectedRows === 0) {
     const err = new Error('Sale not found');
@@ -44,5 +44,5 @@ module.exports = {
   addSale,
   getAll,
   getSaleById,
-  removeProductById,
+  removeSaleById,
 };
