@@ -47,7 +47,7 @@ describe('busca pelo produto com o id correspondente na camada de controller', (
     after(async () => {
       productsService.findProductById.restore();
     })
-    it('é retornado um erro com o status 404', async () => {
+    it('é retornado um erro', async () => {
       await expect(productsController.findProductById(req, res)).to.be.rejectedWith(Error);
     });
   });
@@ -69,5 +69,27 @@ describe('busca pelo produto com o id correspondente na camada de controller', (
       await productsController.findProductById(req, res);
       expect(res.json.calledWith({ id: 1, name: 'prod 1' })).to.be.equal(true);
     });
+  });
+});
+
+describe('Cadastro de um novo produto no BD na camada controllers', () => {
+  const req = {};
+  const res = {};
+  describe('Caso o cadastro não seja bem sucedido', () => {
+    before(async () => {
+      req.body = { name: 'Cad' };
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productsService, 'create').rejects()
+    });
+    after(async () => {
+      productsService.create.restore();
+    });
+    it.only('retorna a mensagem de erro', async () => {
+      await expect(productsController.create(req, res)).to.be.rejectedWith(Error);
+    });
+  });
+  describe('Caso o cadastro seja bem sucedido', () => {
+
   });
 });
