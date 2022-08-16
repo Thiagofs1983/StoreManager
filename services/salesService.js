@@ -38,6 +38,7 @@ const removeSaleById = async (id) => {
     err.status = 404;
     throw err;
   }
+  return result;
 };
 
 module.exports = {

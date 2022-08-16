@@ -61,11 +61,11 @@
     "colId": "d699530a-43d5-4ab7-9ebd-9afd87caa315",
     "containerId": "",
     "name": "deletesales",
-    "url": "http://localhost:3000/sales/1",
+    "url": "http://localhost:3000/sales/2",
     "method": "DELETE",
     "sortNum": 17500,
     "created": "2022-08-16T14:25:47.832Z",
-    "modified": "2022-08-16T14:26:47.695Z",
+    "modified": "2022-08-16T15:18:11.541Z",
     "headers": [],
     "params": [],
     "body": {

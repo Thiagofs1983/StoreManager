@@ -24,10 +24,8 @@ const getSaleById = async (id) => {
 };
 
 const removeSaleById = async (id) => {
-  const sqlSale = 'DELETE FROM StoreManager.sales WHERE id = ?;';
-  const sqlSaleProduct = 'DELETE FROM StoreManager.sales_products WHERE id = ?;';
-  await connection.execute(sqlSaleProduct, [id]);
-  const result = connection.execute(sqlSale, [id]);
+  const sql = 'DELETE FROM StoreManager.sales WHERE id = ?;';
+  const [result] = await connection.execute(sql, [id]);
   return result;
 };
 
