@@ -82,3 +82,23 @@ describe('Busca produto pelo id', () => {
     })
   });
 });
+
+describe('Cadastrar um novo produto', () => {
+  describe('Caso seja possível fazer o cadastro', () => {
+    const name = 'Cadeira Dev'
+    before(async () => {
+      sinon.stub(connection, 'execute').resolves([{ insertId: 1 }]); 
+    });
+    after(async () => {
+      connection.execute.restore();
+    });
+    it('retorno deve ser do tipo número', async () => {
+      const result = await productsModel.create(name);
+      expect(result).to.be.a('number');
+    });
+    it('deve retornar o número 1', async () => {
+      const result = await productsModel.create(name);
+      expect(result).to.be.equal(1);
+    })
+  });
+});
