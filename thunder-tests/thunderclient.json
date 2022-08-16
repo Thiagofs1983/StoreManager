@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-08-11T19:29:16.117Z",
-    "modified": "2022-08-16T12:41:12.116Z",
+    "modified": "2022-08-16T13:55:08.042Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"mafffsd\"\n}",
+      "raw": "{\n  \"name\": \"f\"\n}",
       "form": []
     },
     "tests": []

@@ -85,11 +85,24 @@ describe('Cadastro de um novo produto no BD na camada controllers', () => {
     after(async () => {
       productsService.create.restore();
     });
-    it.only('retorna a mensagem de erro', async () => {
+    it('retorna a mensagem de erro', async () => {
       await expect(productsController.create(req, res)).to.be.rejectedWith(Error);
     });
   });
   describe('Caso o cadastro seja bem sucedido', () => {
-
+    before(async () => {
+      req.body = { name: 'Cadeira Dev' }
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productsService, 'create').resolves(1);
+    });
+    it('produto é cadastrado e chamado com o status 201', async () => {
+      await productsController.create(req, res);
+      expect(res.status.calledWith(201)).to.be.equal(true);
+    });
+    it('produto é cadastrado e retorna o json com o nome e id do produto', async () => {
+      await productsController.create(req, res);
+      expect(res.json.calledWith({ id: 1, name: 'Cadeira Dev' })).to.be.equal(true);
+    });
   });
 });

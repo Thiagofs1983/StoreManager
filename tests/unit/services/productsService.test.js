@@ -78,15 +78,6 @@ describe('Busca produto pelo id na camada service', () => {
 });
 
 describe('Cadastro de um novo produto no BD na camada service', () => {
-  describe('Caso não consiga realizar o cadastro', () => {
-    const name = 'Ca'
-    it('retorna a mensagem de erro "name" length must be at least 5 characters long', async () => {
-      await expect(productsService.create(name)).to.be.rejectedWith('"name" length must be at least 5 characters long');
-    });
-    it('retorna a mensagem de erro "name" is required', async () => {
-      await expect(productsService.create()).to.be.rejectedWith('"name" is required');
-    });
-  });
   describe('Caso o cadastro seja realizado com sucesso', () => {
     const name = 'Cadeira Dev';
     const resolve = 1;
