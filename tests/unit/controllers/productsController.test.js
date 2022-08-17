@@ -106,3 +106,42 @@ describe('Cadastro de um novo produto no BD na camada controllers', () => {
     });
   });
 });
+
+describe('Atualiza produto existente na camada controller', () => {
+  const req = {};
+  const res = {};
+  describe('Caso não seja atualizado com sucesso', () => {
+    before(async () => {
+      req.body = { name: 'Cad' };
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productsService, 'updatePruductById').rejects();
+    });
+    after(async () => {
+      productsService.updatePruductById.restore();
+    });
+    it('É retornada um erro', async () => {
+      await expect(productsController.updatePruductById(req, res)).to.be.rejectedWith(Error);
+    });
+  });
+  describe('Caso seja atualizado com sucesso', () => {
+    before(async () => {
+      req.params = { id: 1 };
+      req.body = { name: 'Cadeira Dev' };
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productsService, 'updatePruductById').resolves({ affectedRows: 1 });
+    });
+    after(async () => {
+      productsService.updatePruductById.restore();
+    });
+    it('Produto é atualizado e chamado status 200', async () => {
+      await productsController.updatePruductById(req, res);
+      expect(res.status.calledWith(200)).to.be.equal(true);
+    });
+    it('Produto é atualizado e retorna um json com o id e o nome do produto', async () => {
+      await productsController.updatePruductById(req, res);
+      expect(res.json.calledWith({ id: 1, name: 'Cadeira Dev' })).to.be.equal(true);
+    });
+  });
+});
