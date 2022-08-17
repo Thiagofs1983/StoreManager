@@ -4,19 +4,13 @@
     "colId": "d699530a-43d5-4ab7-9ebd-9afd87caa315",
     "containerId": "",
     "name": "getstoremanager",
-    "url": "http://localhost:3000/products/search?q=Martelo",
+    "url": "http://localhost:3000/products",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-08-11T19:29:16.117Z",
-    "modified": "2022-08-16T19:05:38.204Z",
+    "modified": "2022-08-17T14:35:27.636Z",
     "headers": [],
-    "params": [
-      {
-        "name": "q",
-        "value": "Martelo",
-        "isPath": false
-      }
-    ],
+    "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"f\"\n}",
